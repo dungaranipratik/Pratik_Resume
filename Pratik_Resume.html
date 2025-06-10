@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratik Dungarani - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .page {
+            max-width: 210mm;
+            min-height: 297mm;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            overflow: hidden;
+            page-break-after: always;
+        }
+
+        .page:last-child {
+            page-break-after: auto;
+        }
+
+        .left-column {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px 30px;
+        }
+
+        .right-column {
+            padding: 40px 35px;
+            background: white;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .name {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .title {
+            font-size: 18px;
+            color: #ecf0f1;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .contact-info {
+            font-size: 13px;
+            color: #bdc3c7;
+            line-height: 1.6;
+        }
+
+        .section {
+            margin-bottom: 32px;
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+
+        .left-column .section h3 {
+            color: #ecf0f1;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .skills-category {
+            margin-bottom: 18px;
+        }
+
+        .skills-category h4 {
+            font-size: 14px;
+            color: #3498db;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .skills-list {
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .education-item {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .education-item:last-child {
+            border-bottom: none;
+        }
+
+        .degree {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .university {
+            font-size: 14px;
+            color: #3498db;
+            margin-bottom: 3px;
+        }
+
+        .year {
+            font-size: 12px;
+            color: #bdc3c7;
+        }
+
+        .summary {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
+            text-align: justify;
+            margin-bottom: 25px;
+        }
+
+        .experience-item {
+            margin-bottom: 30px;
+            border-left: 3px solid #3498db;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .experience-item::before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background: #3498db;
+            border-radius: 50%;
+            position: absolute;
+            left: -6.5px;
+            top: 8px;
+        }
+
+        .job-header {
+            margin-bottom: 12px;
+        }
+
+        .job-title {
+            font-size: 17px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 3px;
+        }
+
+        .company {
+            font-size: 15px;
+            color: #3498db;
+            font-weight: 500;
+            margin-bottom: 3px;
+        }
+
+        .duration {
+            font-size: 13px;
+            color: #7f8c8d;
+            margin-bottom: 8px;
+        }
+
+        .tech-stack {
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 12px;
+            border-left: 3px solid #3498db;
+        }
+
+        .achievements {
+            list-style: none;
+        }
+
+        .achievements li {
+            margin-bottom: 8px;
+            font-size: 14px;
+            line-height: 1.5;
+            position: relative;
+            padding-left: 15px;
+            color: #555;
+        }
+
+        .achievements li::before {
+            content: "▸";
+            color: #3498db;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .highlight {
+            color: #3498db;
+            font-weight: 600;
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 20px;
+            right: 35px;
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+
+        .contact-item {
+            margin-bottom: 10px;
+            font-size: 13px;
+            word-break: break-all;
+        }
+
+        .strength-item {
+            margin-bottom: 12px;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .page {
+                margin: 0;
+                box-shadow: none;
+                max-width: none;
+                min-height: auto;
+                page-break-after: always;
+            }
+            .page:last-child {
+                page-break-after: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page 1 -->
+    <div class="page">
+        <!-- Left Column -->
+        <div class="left-column">
+            <div class="header">
+                <h1 class="name">PRATIK DUNGARANI</h1>
+                <p class="title">Senior Frontend Engineer</p>
+                <div class="contact-info">
+                    <div class="contact-item">📞 +44 7442374220</div>
+                    <div class="contact-item">📧 dungaranipratik56@gmail.com</div>
+                    <div class="contact-item">🔗 linkedin.com/in/pratik-dungarani-a8ab86104</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>TECHNICAL SKILLS</h3>
+                
+                <div class="skills-category">
+                    <h4>Frontend Technologies</h4>
+                    <div class="skills-list">React.js (17/18), JavaScript (ES6+), TypeScript, HTML5, CSS3, SASS, jQuery</div>
+                </div>
+
+                <div class="skills-category">
+                    <h4>Frameworks & Libraries</h4>
+                    <div class="skills-list">Redux, Material UI, Bootstrap, Tailwind CSS, High Chart, D3.js, Chart.js</div>
+                </div>
+
+                <div class="skills-category">
+                    <h4>Backend & APIs</h4>
+                    <div class="skills-list">Node.js, Express.js, REST APIs, WebSockets</div>
+                </div>
+
+                <div class="skills-category">
+                    <h4>Databases</h4>
+                    <div class="skills-list">MongoDB (NoSQL), SQL, Database Management Systems</div>
+                </div>
+
+                <div class="skills-category">
+                    <h4>Tools & DevOps</h4>
+                    <div class="skills-list">Git (GitLab, GitHub, Bitbucket), JIRA, Trello, Webpack, CI/CD Pipeline, Postman</div>
+                </div>
+
+                <div class="skills-category">
+                    <h4>Testing & Quality</h4>
+                    <div class="skills-list">Jest, React Testing Library, E2E Testing, Unit Testing</div>
+                </div>
+
+                <div class="skills-category">
+                    <h4>Other Languages</h4>
+                    <div class="skills-list">Python, ECMAScript</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>EDUCATION</h3>
+                
+                <div class="education-item">
+                    <div class="degree">MSc Big Data Technologies (Computing)</div>
+                    <div class="university">Glasgow Caledonian University</div>
+                    <div class="year">January 2023 - February 2025</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="degree">Bachelor of Engineering (Information Technology)</div>
+                    <div class="university">Gujarat Technological University</div>
+                    <div class="year">June 2013 - May 2017</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>KEY STRENGTHS</h3>
+                <div class="strength-item">• <strong>Leadership:</strong> Team leadership and mentoring experience</div>
+                <div class="strength-item">• <strong>Architecture:</strong> Scalable application design and boilerplate setup</div>
+                <div class="strength-item">• <strong>Performance:</strong> Optimization and code splitting expertise</div>
+                <div class="strength-item">• <strong>Collaboration:</strong> Cross-functional team coordination</div>
+                <div class="strength-item">• <strong>Problem-Solving:</strong> Complex debugging and troubleshooting</div>
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="right-column">
+            <div class="section">
+                <h3>SUMMARY OF QUALIFICATION</h3>
+                <div class="summary">
+                    <span class="highlight">Senior Frontend Engineer</span> with over <span class="highlight">6 years</span> of comprehensive experience in designing, developing, and deploying scalable, user-centric web applications. Expert in applying <span class="highlight">Agile methodologies</span> across the Software Development Lifecycle (SDLC) to ensure high-quality, timely deliverables.
+                    <br><br>
+                    Specialized in <span class="highlight">React.js, JavaScript, TypeScript, and Node.js</span> with proven expertise in architectural design, boilerplate setup, and building high-performance web solutions. Demonstrated ability to lead development teams, mentor junior developers, and provide technical leadership throughout project lifecycles while maintaining excellent client communication and project alignment with business goals.
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>PROFESSIONAL EXPERIENCE</h3>
+                
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div class="job-title">Senior Frontend Engineer</div>
+                        <div class="company">jnextservices, Surat (Remote)</div>
+                        <div class="duration">April 2023 – March 2025</div>
+                        <div class="tech-stack"><strong>Technologies:</strong> React, Redux, MS Word, Chart, Cloud</div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Developed a comprehensive <strong>cloud-based document management solution</strong> for law firms and legal departments to efficiently manage, store, and retrieve large volumes of documents</li>
+                        <li>Implemented <strong>real-time editing and commenting features</strong> enabling seamless team collaboration and remote work capabilities</li>
+                        <li>Built <strong>version control and change tracking systems</strong> to maintain accuracy and accountability in legal document workflows</li>
+                        <li>Designed responsive interfaces that allowed legal professionals to access documents from any location, significantly improving productivity</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div class="job-title">Senior Frontend Engineer</div>
+                        <div class="company">Upforce Tech, Ahmedabad/Surat, India</div>
+                        <div class="duration">April 2021 – March 2023</div>
+                        <div class="tech-stack"><strong>Technologies:</strong> React, HTML, SCSS, SQL, JavaScript, TypeScript, JIRA, Node.js, Tailwind CSS</div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Led design and implementation of <strong>scalable, user-friendly web applications</strong> using React.js with established architectural foundations and best practices</li>
+                        <li>Achieved <strong>40% reduction in load times</strong> through performance profiling, code splitting, lazy loading, and efficient rendering strategies</li>
+                        <li>Developed and optimized <strong>reusable React components</strong> utilizing Redux for state management and React Hooks (useState, useEffect, useMemo, useCallback, useRef)</li>
+                        <li>Implemented <strong>real-time data management using WebSockets</strong>, improving user interaction and enabling immediate application updates</li>
+                        <li>Integrated <strong>RESTful APIs</strong> into React applications for seamless data exchange between front-end and back-end systems</li>
+                        <li>Maintained <strong>extensive unit and integration tests</strong> using Jest and React Testing Library, significantly enhancing code reliability</li>
+                        <li>Provided comprehensive documentation and knowledge sharing to accelerate team onboarding and development processes</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="page-number">Page 1 of 2</div>
+        </div>
+    </div>
+
+    <!-- Page 2 -->
+    <div class="page">
+        <!-- Left Column -->
+        <div class="left-column">
+            <div class="section">
+                <h3>CORE COMPETENCIES</h3>
+                
+                <div class="skills-category">
+                    <h4>Frontend Development</h4>
+                    <div class="skills-list">Component-based architecture, Responsive design, Cross-browser compatibility, Performance optimization</div>
+                </div>
+
+                <div class="skills-category">
+                    <h4>State Management</h4>
+                    <div class="skills-list">Redux, RxJS, React Context API, Complex state architectures</div>
+                </div>
+
+                <div class="skills-category">
+                    <h4>Data Visualization</h4>
+                    <div class="skills-list">ng2-charts, ngx-charts, angular-highcharts, Chart.js, D3.js, Interactive dashboards</div>
+                </div>
+
+                <div class="skills-category">
+                    <h4>Development Practices</h4>
+                    <div class="skills-list">Agile/Scrum, Test-driven development, Code reviews, CI/CD implementation</div>
+                </div>
+
+                <div class="skills-category">
+                    <h4>UI/UX Implementation</h4>
+                    <div class="skills-list">Pixel-perfect designs, Drag-and-drop interfaces, Animation libraries, User experience optimization</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>PROJECT HIGHLIGHTS</h3>
+                <div class="strength-item">• <strong>Document Management System:</strong> Cloud-based legal document solution</div>
+                <div class="strength-item">• <strong>Workforce Management:</strong> Drag-and-drop interface system</div>
+                <div class="strength-item">• <strong>Data Visualization:</strong> Interactive charts and reporting dashboards</div>
+                <div class="strength-item">• <strong>Legacy Migration:</strong> AngularJS to React conversion projects</div>
+                <div class="strength-item">• <strong>Component Libraries:</strong> Reusable UI component systems</div>
+            </div>
+
+            <div class="section">
+                <h3>PERFORMANCE METRICS</h3>
+                <div class="strength-item">• <strong>40%</strong> reduction in application load times</div>
+                <div class="strength-item">• <strong>30%</strong> improvement in build performance</div>
+                <div class="strength-item">• <strong>30%</strong> reduction in development time</div>
+                <div class="strength-item">• <strong>15%</strong> improvement in project delivery time</div>
+                <div class="strength-item">• <strong>40%</strong> reduction in data processing time</div>
+            </div>
+
+            <div class="section">
+                <h3>METHODOLOGIES</h3>
+                <div class="strength-item">• Agile/Scrum Development</div>
+                <div class="strength-item">• Test-Driven Development (TDD)</div>
+                <div class="strength-item">• Continuous Integration/Deployment</div>
+                <div class="strength-item">• Code Review Best Practices</div>
+                <div class="strength-item">• Performance Optimization</div>
+                <div class="strength-item">• Cross-platform Development</div>
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="right-column">
+            <div class="section">
+                <h3>PROFESSIONAL EXPERIENCE (CONTINUED)</h3>
+                
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div class="job-title">Frontend Engineer</div>
+                        <div class="company">Artoon Solutions, India</div>
+                        <div class="duration">January 2018 – March 2022</div>
+                        <div class="tech-stack"><strong>Technologies:</strong> React, HTML, SCSS, SQL, JavaScript, TypeScript, Bootstrap, JIRA</div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Designed and developed <strong>pixel-perfect, responsive websites</strong> and web applications using HTML5/CSS3/jQuery with advanced animations</li>
+                        <li>Achieved <strong>30% improvement in front-end build performance</strong> by optimizing Webpack configuration and implementing Redux (RxJS) for state management</li>
+                        <li>Led <strong>UI/UX design and development</strong> for new products in React, establishing robust architecture following industry best practices</li>
+                        <li>Successfully <strong>migrated legacy AngularJS projects to React</strong>, including creation of reusable component library reducing development time by 30%</li>
+                        <li>Developed <strong>advanced data visualizations</strong> using Angular with interactive bar graphs and charts, implementing libraries like ng2-charts, ngx-charts, angular-highcharts, Chart.js, and D3.js</li>
+                        <li>Implemented <strong>drag-and-drop interface</strong> for workforce management system, significantly improving usability and productivity</li>
+                        <li>Coordinated with <strong>UX designers, product managers, and backend developers</strong> to ensure cohesive design execution, improving project delivery time by 15%</li>
+                        <li>Developed <strong>cross-browser-compatible applications</strong> by implementing responsive design techniques and comprehensive E2E testing across multiple browsers</li>
+                        <li>Integrated <strong>third-party APIs and optimized data pipelines</strong>, achieving 40% reduction in processing time</li>
+                        <li>Managed cross-browser/platform compatibility issues across Windows environments (IE, Firefox, Safari)</li>
+                        <li>Streamlined project workflows using <strong>JIRA for issue tracking</strong>, ensuring efficient and timely project delivery</li>
+                        <li>Implemented <strong>Web Performance Optimization strategies</strong> for maximum speed and scalability</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>KEY ACHIEVEMENTS & IMPACT</h3>
+                <ul class="achievements">
+                    <li><strong>Performance Leadership:</strong> Consistently delivered 30-40% improvements in application performance through strategic optimization</li>
+                    <li><strong>Team Development:</strong> Successfully mentored junior developers and conducted comprehensive training sessions on React.js fundamentals</li>
+                    <li><strong>Architecture Design:</strong> Established scalable architectural foundations for multiple high-traffic web applications</li>
+                    <li><strong>Cross-functional Collaboration:</strong> Led coordination between design, product, and development teams improving overall project efficiency</li>
+                    <li><strong>Legacy System Modernization:</strong> Spearheaded migration of critical legacy systems to modern React-based architectures</li>
+                    <li><strong>Quality Assurance:</strong> Implemented comprehensive testing strategies reducing production errors and improving code reliability</li>
+                    <li><strong>Innovation Implementation:</strong> Successfully integrated cutting-edge technologies including WebSockets, real-time data management, and advanced data visualization</li>
+                    <li><strong>Client Satisfaction:</strong> Maintained excellent client communication ensuring project alignment with business goals and requirements</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>PROFESSIONAL DEVELOPMENT</h3>
+                <ul class="achievements">
+                    <li>Currently pursuing <strong>MSc in Big Data Technologies</strong> to enhance analytical and data processing capabilities</li>
+                    <li>Continuous learning in emerging <strong>React ecosystem technologies</strong> and modern JavaScript frameworks</li>
+                    <li>Active participation in <strong>code review processes</strong> and knowledge sharing initiatives</li>
+                    <li>Experience with <strong>Agile ceremonies</strong> including sprint planning, daily stand-ups, and retrospective meetings</li>
+                </ul>
+            </div>
+
+            <div class="page-number">Page 2 of 2</div>
+        </div>
+    </div>
+</body>
+</html>
